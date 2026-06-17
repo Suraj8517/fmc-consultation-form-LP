@@ -55,8 +55,8 @@ export default function Navbar() {
 
           {/* CTA */}
           <a
-            href="#join"
-            className="h-14 px-5 rounded-full text-black text-sm font-medium flex items-center bg-white"
+            href="#cta"
+            className="h-14 px-5 rounded-full text-white text-sm font-medium flex items-center bg-teal-500"
             
           >
             Join Now

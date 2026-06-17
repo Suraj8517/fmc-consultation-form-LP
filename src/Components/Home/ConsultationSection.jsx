@@ -39,22 +39,22 @@ export default function ConsultationSection() {
       original: "₹1,099",
       price: "₹297",
       unit: "only",
-      href: "https://consultationform.fitmomclub.co/expresspayment1/order",
+      href: "",
       dark: false,
     },
     {
       label: "Pritika",
-      sublabel: "1-on-1 with the founder",
+      sublabel: "1-on-1 with Pritika",
       original: "₹2,099",
       price: "₹997",
       unit: "only",
-      href: "https://consultationform.fitmomclub.co/expresspayment2/order",
+      href: "",
       dark: true,
     },
   ];
 
   return (
-    <section
+    <section id="cta"
       className="bg-white min-h-screen flex items-center px-5 py-20 sm:px-10 md:px-16 lg:px-24 xl:px-32"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >

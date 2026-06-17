@@ -7,6 +7,7 @@ import FitMomDifference from '../Components/Home/FitmomDifference'
 import TestimonialsSection from '../Components/Home/TransformationSection'
 import TransformationSection from '../Components/Home/TestimonialImages'
 import ConsultationSection from '../Components/Home/ConsultationSection'
+import FAQSection from '../Components/Home/FAQSection'
 export default function Home() {
   return (
     <>
@@ -18,6 +19,7 @@ export default function Home() {
      <TestimonialsSection/>
      <TransformationSection/>
      <ConsultationSection/>
+     <FAQSection/>
     </>
   )
 }
