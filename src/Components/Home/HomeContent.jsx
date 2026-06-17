@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import diet from "../../assets/home/secondSection/nutrition.jpg"
+import expert from "../../assets/home/secondSection/expert.jpg"
+import session from "../../assets/home/secondSection/session.jpg"
+import support from "../../assets/home/secondSection/support.jpg"
 
 const DURATION = 6000;
 const TICK_MS = 50;
@@ -9,8 +13,7 @@ const features = [
     title: "Personalized Nutrition Guidance",
     description:
       "Receive a custom diet plan from our expert dietitians, with unlimited consultations.",
-    image:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop",
+    image:diet,
     bg: "#E9E3E0",
     text: "#4B4540",
   },
@@ -20,7 +23,7 @@ const features = [
     description:
       "Your fitness journey is guided by our experts with bespoke workout plans and unlimited consultations.",
     image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
+      expert,
     bg: "#cfe7ee",
     text: "#1F3A52",
   },
@@ -30,7 +33,7 @@ const features = [
     description:
       "Join over 30+ invigorating, live group workout sessions every day.",
     image:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
+      support,
     bg: "#d9e8d3",
     text: "#2F4A35",
   },
@@ -40,7 +43,7 @@ const features = [
     description:
       "Regular progress updates, exclusive rewards, special events, and that extra push when needed.",
     image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop",
+      session,
     bg: "#fee5dd",
     text: "#7A4434",
   },

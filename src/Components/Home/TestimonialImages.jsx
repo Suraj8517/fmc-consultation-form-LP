@@ -10,7 +10,7 @@ const transformations = [
 export default function TransformationSection() {
   return (
     <section
-      className="px-5 py-10 sm:px-10 md:px-16 lg:px-20 xl:px-24 2xl:px-32"
+      className=" px-5 py-16 sm:px-10 md:px-16 lg:px-20 xl:px-24 2xl:px-32"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       {/* Header */}
@@ -33,9 +33,9 @@ export default function TransformationSection() {
               alt={`${item.name} transformation`}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            {/* Bottom meta */}
+            {/* Always-visible bottom gradient + meta */}
             <div
-              className="absolute bottom-0 inset-x-0 pt-10 pb-3 px-4 flex items-end justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute bottom-0 inset-x-0 pt-10 pb-3 px-4 flex items-end justify-between"
               style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)" }}
             >
               <span className="text-white text-sm font-medium">{item.name}</span>
