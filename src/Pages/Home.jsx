@@ -4,7 +4,8 @@ import HomeContent from '../Components/Home/HomeContent'
 import AboutPritikaSection from '../Components/Home/AboutPritikaSection'
 import StatsSection from '../Components/Home/StatSection'
 import FitMomDifference from '../Components/Home/FitmomDifference'
-import TestimonialsSection from '../Components/Home/TestimonialSection'
+import TestimonialsSection from '../Components/Home/TransformationSection'
+import TransformationSection from '../Components/Home/TestimonialImages'
 export default function Home() {
   return (
     <>
@@ -13,7 +14,8 @@ export default function Home() {
     <AboutPritikaSection/>
      <StatsSection/> 
      <FitMomDifference/>
-     <TestimonialsSection/> 
+     <TestimonialsSection/>
+     <TransformationSection/>
     </>
   )
 }
