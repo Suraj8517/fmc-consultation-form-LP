@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Zap, Target, ArrowRight, Heart } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const CYCLING_WORDS = ["wellness", "fitness", "strength", "vitality"];
 const CYCLE_MS = 2200;
 
@@ -39,7 +39,7 @@ export default function ConsultationSection() {
       original: "₹1,099",
       price: "₹297",
       unit: "only",
-      href: "",
+      href: "/express-consultation",
       dark: false,
     },
     {
@@ -180,8 +180,8 @@ export default function ConsultationSection() {
                     <span className="text-sm font-normal ml-1">{plan.unit}</span>
                   </p>
                 </div>
-                <a
-                  href={plan.href}
+                <Link
+                  to={plan.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 whitespace-nowrap text-xs font-semibold px-5 py-2.5 rounded-full transition-opacity hover:opacity-85"
@@ -192,7 +192,7 @@ export default function ConsultationSection() {
                 >
                   Start your journey
                   <ArrowRight size={13} strokeWidth={2.5} />
-                </a>
+                </Link>
               </div>
             </div>
           ))}

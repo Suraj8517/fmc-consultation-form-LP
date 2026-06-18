@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { HashLink } from "react-router-hash-link";
 import logo from "../../assets/home/logo.png"; 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
@@ -54,13 +55,12 @@ export default function Navbar() {
           
 
           {/* CTA */}
-          <a
-            href="#cta"
+          <HashLink
+            to="/#cta"
             className="h-14 px-5 rounded-full text-white text-sm font-medium flex items-center bg-teal-500"
-            
           >
             Join Now
-          </a>
+          </HashLink>
         </div>
       </nav>
     </header>
