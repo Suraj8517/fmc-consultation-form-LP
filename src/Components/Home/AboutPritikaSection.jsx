@@ -6,7 +6,7 @@ import mobileimg from "../../assets/home/pritika-mobile.png"
 // ─────────────────────────────────────────────
 function AboutPritikaMobile({ imageUrl, content }) {
   return (
-    <section className="relative w-full bg-[#f6f4f0] overflow-hidden">
+    <section className="relative w-full bg-[#F6F4F0] overflow-hidden">
       {/* Hero image – full width, portrait crop */}
       <div className="relative w-full" style={{ height: "30svh" }}>
         <img

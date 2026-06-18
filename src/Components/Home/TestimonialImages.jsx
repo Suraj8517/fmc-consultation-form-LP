@@ -1,16 +1,77 @@
-const transformations = [
-  { name: "Sneha R.", loss: "−12 kg", duration: "3 months", image: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&h=400&fit=crop" },
-  { name: "Anjali M.", loss: "−9 kg", duration: "2 months", image: "https://images.unsplash.com/photo-1616279969856-759f316a5ac1?w=600&h=400&fit=crop" },
-  { name: "Divya N.", loss: "−15 kg", duration: "4 months", image: "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=600&h=400&fit=crop" },
-  { name: "Priya I.", loss: "−18 kg", duration: "5 months", image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&h=400&fit=crop" },
-  { name: "Kavitha S.", loss: "−11 kg", duration: "3 months", image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop" },
-  { name: "Meera P.", loss: "−9 kg", duration: "2 months", image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&h=400&fit=crop" },
+import { useState, useEffect, useRef } from "react";
+import img1 from "../../assets/home/transformation/1.png"
+import img2 from "../../assets/home/transformation/2.png"
+import img3 from "../../assets/home/transformation/3.png"
+import img4 from "../../assets/home/transformation/4.png"
+import img5 from "../../assets/home/transformation/5.png"
+import img6 from "../../assets/home/transformation/6.png"
+import img7 from "../../assets/home/transformation/7.png"
+import img8 from "../../assets/home/transformation/8.png"
+import img9 from "../../assets/home/transformation/9.png"
+import img10 from "../../assets/home/transformation/10.png"
+import img11 from "../../assets/home/transformation/11.png"
+import img12 from "../../assets/home/transformation/12.png"
+import img13 from "../../assets/home/transformation/13.png"
+import img14 from "../../assets/home/transformation/14.png"
+import img15 from "../../assets/home/transformation/15.png"
+import img16 from "../../assets/home/transformation/16.png"
+import img17 from "../../assets/home/transformation/17.png"
+
+const allImages = [
+  { name: "client1",   before: 0, after: 0, loss: 0, duration: "3 months", image: img1 },
+  { name: "client2",  before: 0, after: 0, loss: 0,  duration: "2 months", image: img2 },
+  { name: "client3",   before: 80, after: 65, loss: 15, duration: "4 months", image: img3 },
+  { name: "client4",   before: 85, after: 72, loss: 18, duration: "5 months", image: img4 },
+  { name: "client5", before: 0, after: 0, loss: 11, duration: "3 months", image: img5 },
+  { name: "client6",   before: 92, after: 74, loss: 9,  duration: "2 months", image: img6 },
+  { name: "client7",   before: 75, after: 70, loss: 14, duration: "4 months", image: img7 },
+  { name: "client8",  before: 0, after: 0, loss: 0, duration: "3 months", image: img8 },
+  { name: "client9",   before: 0, after: 0, loss: 0,  duration: "2 months", image: img9 },
+  { name: "client10",   before: 93, after: 61, loss: 20, duration: "6 months", image: img10 },
+  { name: "client11",    before: 94, after: 87, loss: 8,  duration: "2 months", image: img11 },
+  { name: "client12",   before: 66, after: 56, loss: 13, duration: "3 months", image: img12 },
+  { name: "client13",    before: 62, after: 53, loss: 16, duration: "5 months", image: img13 },
+  { name: "client14",    before: 82, after: 75, loss: 6,  duration: "6 weeks",  image: img14 },
+  { name: "client15",    before: 96, after: 78, loss: 17, duration: "5 months", image: img15 },
+  { name: "client16",    before: 0, after: 0, loss: 17, duration: "5 months", image: img16 },
+  { name: "client17",    before: 83, after: 73, loss: 17, duration: "5 months", image: img17 },
+
 ];
 
+const CARDS = 6;
+const INTERVAL = 2500;
+
 export default function TransformationSection() {
+  const [slots, setSlots] = useState(() =>
+    Array.from({ length: CARDS }, (_, i) => i)
+  );
+  const [fadingCard, setFadingCard] = useState(null);
+  const nextIndexRef = useRef(CARDS);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const cardToSwap = Math.floor(Math.random() * CARDS);
+      const incoming = nextIndexRef.current % allImages.length;
+
+      setFadingCard(cardToSwap);
+
+      setTimeout(() => {
+        setSlots((prev) => {
+          const updated = [...prev];
+          updated[cardToSwap] = incoming;
+          return updated;
+        });
+        nextIndexRef.current = (nextIndexRef.current + 1) % allImages.length;
+        setFadingCard(null);
+      }, 400);
+    }, INTERVAL);
+
+    return () => clearInterval(interval);
+  }, []); // runs once, never restarts
+
   return (
     <section
-      className=" px-5 py-16 sm:px-10 md:px-16 lg:px-20 xl:px-24 2xl:px-32"
+      className="px-5 py-16 sm:px-10 md:px-16 lg:px-20 xl:px-24 2xl:px-32"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       {/* Header */}
@@ -26,26 +87,49 @@ export default function TransformationSection() {
 
       {/* Grid */}
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-        {transformations.map((item, i) => (
-          <div key={i} className="relative rounded-2xl overflow-hidden group aspect-[4/3]">
-            <img
-              src={item.image}
-              alt={`${item.name} transformation`}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            {/* Always-visible bottom gradient + meta */}
-            <div
-              className="absolute bottom-0 inset-x-0 pt-10 pb-3 px-4 flex items-end justify-between"
-              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)" }}
-            >
-              <span className="text-white text-sm font-medium">{item.name}</span>
-              <div className="text-right">
-                <p className="text-white text-base font-semibold leading-none">{item.loss}</p>
-                <p className="text-white/70 text-[10px]">{item.duration}</p>
+        {slots.map((imgIndex, cardIndex) => {
+          const item = allImages[imgIndex];
+          const isFading = fadingCard === cardIndex;
+          return (
+            <div key={cardIndex} className="relative rounded-2xl overflow-hidden group aspect-[4/3]">
+              <img
+                src={item.image}
+                alt={`${item.name} transformation`}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                style={{
+                  opacity: isFading ? 0 : 1,
+                  transition: "opacity 0.4s ease, transform 0.5s ease",
+                }}
+              />
+
+              {/* Bottom gradient overlay */}
+              <div
+                className="absolute bottom-0 inset-x-0 pt-10 pb-3 px-3"
+                style={{
+                  background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%)",
+                  opacity: isFading ? 0 : 1,
+                  transition: "opacity 0.4s ease",
+                }}
+              >
+                <div className="flex items-end justify-between">
+                  <div className="text-left">
+                    <p className="text-white/60 text-[9px] uppercase tracking-wider leading-none mb-0.5">Before</p>
+                    <p className={`text-white text-sm font-semibold leading-none ${item.before === 0 ? "hidden" : "visible" }`}>{item.before} kg</p>
+                  </div>
+
+                  <div className="text-center">
+                    <p className={`text-[#00d1b8] text-base md:text-lg font-bold leading-none ${item.before === 0 ? "hidden" : "visible" }`}>−{item.before - item.after} kg</p>
+                  </div>
+
+                  <div className="text-right">
+                    <p className="text-white/60 text-[9px] uppercase tracking-wider leading-none mb-0.5">After</p>
+                    <p className={`text-white text-sm font-semibold leading-none ${item.before === 0 ? "hidden" : "visible" }`}>{item.after} kg</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

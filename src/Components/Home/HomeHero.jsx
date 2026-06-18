@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import hero from '../../assets/home/hero.jpg';
 import { Bike, Dumbbell } from 'lucide-react';
-
+import appSS from "../../assets/home/appSS.png";
 function ease(t) {
   return t * t * t * (t * (t * 6 - 15) + 10);
 }
@@ -107,7 +107,7 @@ function MobileSection() {
   const descRef = useFadeInRef(0.1);
 
   return (
-    <section className="block md:hidden bg-[#EDEAE4] font-sans antialiased">
+    <section className="block md:hidden bg-[#F6F4F0] font-sans antialiased">
 
       <style>{`
         .mob-hero-wrap {
@@ -179,7 +179,7 @@ function MobileSection() {
       </div>
 
       {/* Content below hero */}
-      <div className="px-5 pt-10 pb-6">
+      <div className="px-5 pt-10 pb-2">
 
         {/* Heading + description */}
         <div ref={contentRef} className="mob-content-section mb-8">
@@ -187,32 +187,21 @@ function MobileSection() {
             className="text-[#1a1a1a] font-semibold leading-[1.1] m-0"
             style={{ fontSize: "clamp(26px, 7vw, 36px)", letterSpacing: "-0.03em" }}
           >
-            Your health and fitness data, connected in one place
+            Turning commitment into transformation
           </h2>
           <p className="mt-4 text-[15px] leading-[1.75] text-[#5a5855] m-0">
-            Your wearables, medical devices, favourite apps, and medical records, all working together. A holistic view of your health and wellness.
+            Ready to jump ahead in line and receive personalized
+guidance with priority support throughout your wellness
+journey?
           </p>
         </div>
 
         {/* Activities card */}
         <div ref={activitiesRef} className="mob-content-section mb-8" style={{ transitionDelay: "0.1s" }}>
-          <div className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
-            <div className="flex items-center justify-between px-4 pt-4 pb-2">
-              <span className="text-[15px] font-bold text-gray-900">Recent activities</span>
-              <button className="flex items-center gap-0.5 text-[13px] font-medium text-[#4285F4] bg-transparent border-none cursor-pointer p-0">
-                All activities
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex flex-col gap-1.5 px-2.5 pb-3.5">
-              {activities.map((act, i) => (
-                <MobileActivityRow key={i} act={act} delay={`${i * 0.01}s`} />
-              ))}
-            </div>
-          </div>
-        </div>
+  <div className="flex rounded-3xl overflow-hidden justify-center">
+    <img src={appSS} alt="" className="w-[80%] h-[80%] object-cover justify-center" />
+  </div>
+</div>
 
       </div>
     </section>
