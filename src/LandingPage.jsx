@@ -12,8 +12,8 @@ export default function LandingPage() {
     <Navbar/>
     <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="express-consultation" element={<ConsultationPage/>}/>
-        <Route path="pritika-consultation" element={<PritikaConsultation/>}/>
+        <Route path="/express-consultation" element={<ConsultationPage/>}/>
+        <Route path="/pritika-consultation" element={<PritikaConsultation/>}/>
 
     </Routes>
     </Router>
