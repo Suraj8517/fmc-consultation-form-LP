@@ -48,7 +48,7 @@ export default function ConsultationSection() {
       original: "₹2,099",
       price: "₹997",
       unit: "only",
-      href: "",
+      href: "/pritika-consultation",
       dark: true,
     },
   ];
@@ -182,7 +182,6 @@ export default function ConsultationSection() {
                 </div>
                 <Link
                   to={plan.href}
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 whitespace-nowrap text-xs font-semibold px-5 py-2.5 rounded-full transition-opacity hover:opacity-85"
                   style={{
