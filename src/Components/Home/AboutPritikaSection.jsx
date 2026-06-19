@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import heroPhoto from "../../assets/home/pritika.webp";
+import heroPhoto from "../../assets/home/hero.webp";
 import mobileimg from "../../assets/home/pritika-mobile1.webp"
+import { HashLink } from "react-router-hash-link";
+import { ArrowRight } from "lucide-react";
 // ─────────────────────────────────────────────
 // MOBILE VERSION – no scroll animation, mobile-first
 // ─────────────────────────────────────────────
@@ -76,6 +78,14 @@ function AboutPritikaMobile({ imageUrl, content }) {
         >
           {content}
         </p>
+
+        <HashLink
+          to="/#cta"
+          className="inline-flex items-center gap-2 h-12 px-6 mt-6 rounded-full text-white text-sm font-semibold bg-teal-500 shadow-sm shadow-teal-900/10 transition-all duration-200 hover:bg-teal-600 hover:scale-[1.02] active:scale-[0.97]"
+        >
+          Join Now
+          <ArrowRight size={14} />
+        </HashLink>
       </div>
     </section>
   );
@@ -284,6 +294,14 @@ function AboutPritikaDesktop({ imageUrl, content }) {
             <p className="text-white/80 2xl:text-lg text-sm leading-relaxed font-[Poppins]">
               {content}
             </p>
+
+            <HashLink
+              to="/#cta"
+              className="pointer-events-auto inline-flex items-center gap-2 h-12 2xl:h-14 px-6 mt-6 rounded-full text-white text-sm 2xl:text-base font-semibold bg-teal-500 shadow-lg shadow-black/30 transition-all duration-200 hover:bg-teal-600 hover:scale-[1.02] active:scale-[0.97]"
+            >
+              Join Now
+              <ArrowRight size={14} />
+            </HashLink>
           </div>
         </div>
 
