@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import hero from '../../assets/home/hero.jpg';
+import hero from '../../assets/home/pritika-mobile.png';
 import { Bike, Dumbbell } from 'lucide-react';
 import appSS from "../../assets/home/appSS.png";
 function ease(t) {
@@ -439,7 +439,7 @@ Ready to jump ahead in line and receive personalized guidance with priority supp
               
               {/* Heading overlay */}
               <div
-                className="absolute top-1/2 right-0 w-1/2 flex items-center justify-center px-6 pointer-events-none will-change-transform"
+                className="absolute top-1/2 left-0 2xl:w-1/3 w-1/2 flex items-center justify-center px-6 pointer-events-none will-change-transform 2xl:ml-16 xl:mt-16"
                 style={{
                   transform: `translateY(calc(-50% + ${headingTransY}px))`,
                   opacity: headingOpacity,
