@@ -8,9 +8,11 @@ import TestimonialsSection from '../Components/Home/TransformationSection'
 import TransformationSection from '../Components/Home/TestimonialImages'
 import ConsultationSection from '../Components/Home/ConsultationSection'
 import FAQSection from '../Components/Home/FAQSection'
+import Navbar from '../Components/Home/navbar'
 export default function Home() {
   return (
     <>
+    <Navbar/>
     <HomeHero /> 
     <HomeContent/>  
     <AboutPritikaSection/>

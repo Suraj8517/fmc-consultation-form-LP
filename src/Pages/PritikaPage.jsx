@@ -63,8 +63,7 @@ export default function PritikaConsultation() {
               Transform your health,<br />backed by experts
             </p>
             <p className="text-sm text-neutral-600 leading-relaxed max-w-xs text-left">
-              Book your paid consultation call now and get an express session from the FitMom Club team — real guidance for real results.
-            </p>
+Book your paid consultation call with Ms. Pritika and receive personalized guidance to help you achieve real, lasting results.            </p>
           </div>
         </div>
       </section>
