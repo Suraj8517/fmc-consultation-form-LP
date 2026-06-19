@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import heroPhoto from "../../assets/home/pritika.png";
-import mobileimg from "../../assets/home/pritika-mobile.png"
+import heroPhoto from "../../assets/home/pritika.webp";
+import mobileimg from "../../assets/home/pritika-mobile1.webp"
 // ─────────────────────────────────────────────
 // MOBILE VERSION – no scroll animation, mobile-first
 // ─────────────────────────────────────────────

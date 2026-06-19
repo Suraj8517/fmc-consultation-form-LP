@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import hero from '../../assets/home/pritika-mobile.png';
+import hero from '../../assets/home/pritika-mobile.webp';
 import { Bike, Dumbbell } from 'lucide-react';
 import appSS from "../../assets/home/appSS.png";
 function ease(t) {
