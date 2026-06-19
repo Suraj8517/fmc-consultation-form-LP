@@ -106,15 +106,15 @@ export default function PritikaConsultation() {
               </div>
             </div>
 
-            {/* Bonus chip
+            {/* Bonus chip */}
             <div
-              className="mt-4 flex items-center gap-2.5 rounded-2xl px-4 py-3 text-sm font-medium"
-              style={{ backgroundColor: "#EDEBE8", color: "#1a2e2b" }}
+              className="mt-4 flex items-center gap-2.5 rounded-2xl px-4 py-3 text-md font-medium"
+              style={{ color: "#1a2e2b" }}
             >
-              <Gift size={18} className="shrink-0" />
-              <span>Register today to unlock bonuses worth ₹1099!</span>
+              
+              <span>Book a quick one-on-one consultation with Ms. Pritika to discuss your goals and receive personalized guidance for your health and fitness journey.</span>
             </div>
- */}
+ 
             {/* Helper text */}
             <p className="text-sm text-neutral-500 leading-relaxed mt-5">
               Please book a consultation based on your location, so that it will be easy for us to contact you.
