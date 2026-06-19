@@ -182,7 +182,6 @@ export default function ConsultationSection() {
                 </div>
                 <Link
                   to={plan.href}
-                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 whitespace-nowrap text-xs font-semibold px-5 py-2.5 rounded-full transition-opacity hover:opacity-85"
                   style={{
                     backgroundColor: plan.dark ? "#fff" : "#1a2e2b",

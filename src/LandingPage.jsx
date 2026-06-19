@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './Components/Home/navbar'
 import ConsultationPage from './Pages/ExpressPage';
 import PritikaConsultation from './Pages/PritikaPage';
+import ScrollToTop from './Helper/scrollToTop';
 
 export default function LandingPage() {
   return (
     <>
  <Router>
+    <ScrollToTop/>
     <Navbar/>
     <Routes>
         <Route path="/" element={<Home/>}/>
