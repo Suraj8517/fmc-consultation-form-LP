@@ -111,7 +111,7 @@ Book your paid consultation call with Ms. Pritika and receive personalized guida
         <div className="flex justify-between items-start">
           <div>
             <p className="text-xs uppercase tracking-wider text-neutral-400">
-              Today's Special Price
+              Special Price
             </p>
             <p className="line-through text-neutral-400 mt-2">₹2,099</p>
             <div className="flex items-end gap-2 mt-1">
