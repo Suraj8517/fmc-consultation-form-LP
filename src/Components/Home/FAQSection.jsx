@@ -57,7 +57,7 @@ function FAQItem({ item, isOpen, onToggle }) {
       <div className="flex items-center justify-between py-5 gap-6">
         <span
           className="text-sm md:text-base font-normal"
-          style={{ color: "#1a1a1a", fontFamily: "Poppins, sans-serif" }}
+          style={{ color: "#ffffff", fontFamily: "Poppins, sans-serif" }}
         >
           {item.q}
         </span>
@@ -85,14 +85,14 @@ function FAQItem({ item, isOpen, onToggle }) {
           {item.bullets ? (
             <ul className="flex flex-col gap-2">
               {item.bullets.map((b, i) => (
-                <li key={i} className="flex gap-2.5 items-start text-sm leading-relaxed" style={{ color: "#555" }}>
+                <li key={i} className="flex gap-2.5 items-start text-sm leading-relaxed text-neutral-400">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#1a2e2b" }} />
                   {b}
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm leading-relaxed" style={{ color: "#555" }}>{item.a}</p>
+            <p className="text-sm leading-relaxed text-neutral-400">{item.a}</p>
           )}
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function FAQSection() {
 
   return (
     <section
-      className="relative min-h-[70svh] flex items-center px-5 pb-20 sm:px-10 md:px-16 lg:px-24 xl:px-32 overflow-hidden"
+      className="relative min-h-[70svh] flex items-center px-5 pb-20 sm:px-10 md:px-16 lg:px-24 xl:px-32 overflow-hidden bg-[#0D0D0D]"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       
@@ -173,7 +173,7 @@ export default function FAQSection() {
         {/* Left label */}
         <div className="md:pt-5">
           <h2
-            className="font-medium text-neutral-900"
+            className="font-medium text-neutral-100"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.15 }}
           >
             FAQ
