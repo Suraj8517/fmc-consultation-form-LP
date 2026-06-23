@@ -71,7 +71,7 @@ export default function TransformationSection() {
 
   return (
     <section
-      className="px-5 py-16 sm:px-10 md:px-16 lg:px-20 xl:px-24 2xl:px-32"
+      className="px-5 py-56 sm:px-10 md:px-16 lg:px-20 xl:px-24 2xl:px-32"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       {/* Header */}

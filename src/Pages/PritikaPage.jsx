@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, Phone, Globe, Gift } from "lucide-react";
 import img1 from "../assets/home/pritika-mobile.png"
+import Sample from "./sample";
 
 
 export default function PritikaConsultation() {
@@ -76,7 +77,7 @@ Book your paid consultation call with Ms. Pritika and receive personalized guida
 
           {/* Left: content panel — cream + dark green theme */}
           <div
-            className="p-6 sm:p-9 lg:p-14 flex flex-col order-2 sm:order-1 rounded-3xl h-auto sm:h-[80vh]"
+            className="p-6 sm:p-9 lg:p-14 flex flex-col order-2 sm:order-1 rounded-3xl h-auto sm:h-[90vh]"
             style={{ backgroundColor: "#F6F4F0" }}
           >
             {/* Eyebrow */}
@@ -90,20 +91,45 @@ Book your paid consultation call with Ms. Pritika and receive personalized guida
               </span>
             </div>
 
-            {/* Headline */}
-            <p className="mt-4 sm:mt-5 text-xl sm:text-2xl md:text-3xl font-medium text-neutral-900 leading-snug" style={{ letterSpacing: "-0.3px" }}>
-              GET EXPRESS Consultation Call With Ms Pritika
-            </p>
+           <div className="relative z-10 mt-8">
+        <h1 className="text-3xl lg:text-5xl font-semibold leading-none text-[#1A2E2B]">
+          GET YOUR
+        </h1>
+        <h2 className="mt-2 text-3xl lg:text-5xl font-bold leading-none bg-gradient-to-r from-[#1A2E2B] via-emerald-600 to-[#32b37b] bg-clip-text text-transparent">
+          EXPRESS
+        </h2>
+        <h2 className="text-3xl lg:text-5xl font-bold leading-none bg-gradient-to-r from-[#1A2E2B] via-emerald-600 to-[#32b37b] bg-clip-text text-transparent">
+          CONSULTATION
+        </h2>
 
-            {/* Price highlight */}
-            <div className="mt-5 sm:mt-7 flex items-center justify-between rounded-2xl px-1 sm:px-5 py-4">
-              <div>
-                <p className="text-xs line-through text-neutral-400">₹2,099</p>
-                <p className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-none" style={{ color: "#1a2e2b" }}>
-                  ₹997<span className="text-sm font-normal ml-1 text-neutral-500">only</span>
-                </p>
-              </div>
+        <p className="mt-3 text-xl text-neutral-600">
+          with <span className="font-semibold text-[#1A2E2B]">Ms. Pritika</span>
+        </p>
+      </div>
+
+           <div className="relative z-10 mt-8 rounded-3xl bg-white p-6 shadow-lg border border-neutral-100">
+        <div className="flex justify-between items-start">
+          <div>
+            <p className="text-xs uppercase tracking-wider text-neutral-400">
+              Today's Special Price
+            </p>
+            <p className="line-through text-neutral-400 mt-2">₹2,099</p>
+            <div className="flex items-end gap-2 mt-1">
+              <span className="text-6xl font-bold text-[#1A2E2B]">₹997</span>
+              <span className="text-neutral-500 mb-2">only</span>
             </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <span className="rounded-full bg-red-500 text-white px-4 py-1 text-xs font-bold">
+              52% OFF
+            </span>
+            <span className="rounded-full bg-green-100 text-green-700 px-4 py-1 text-xs font-bold">
+              Save ₹1,102
+            </span>
+          </div>
+        </div>
+      </div>
 
             {/* Bonus chip */}
             <div
@@ -127,7 +153,24 @@ Book your paid consultation call with Ms. Pritika and receive personalized guida
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:opacity-90"
-                  style={{ backgroundColor: "#1a2e2b" }}
+                  style={{
+                width: "100%",
+                padding: "17px 0",
+                borderRadius: 999,
+                fontSize: 14,
+                fontWeight: 700,
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
+                color: "#fff",
+                letterSpacing: "0.02em",
+                textDecoration: "none",
+                transition: "filter 0.2s, transform 0.2s",
+              }}
                 >
                   <Phone size={16} />
                   <span>WITHIN INDIA</span>
@@ -142,7 +185,24 @@ Book your paid consultation call with Ms. Pritika and receive personalized guida
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 font-semibold px-5 py-3.5 rounded-full border transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:bg-white"
-                  style={{ color: "#1a2e2b", borderColor: "rgba(26,46,43,0.18)", backgroundColor: "#EDEBE8" }}
+                  style={{
+                width: "100%",
+                padding: "17px 0",
+                borderRadius: 999,
+                fontSize: 14,
+                fontWeight: 700,
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                background: "linear-gradient(90deg,#50ffaa,#00d4ff)",
+                color: "#062019",
+                letterSpacing: "0.02em",
+                textDecoration: "none",
+                transition: "filter 0.2s, transform 0.2s",
+              }}
                 >
                   <Globe size={16} />
                   <span>OUTSIDE INDIA</span>
