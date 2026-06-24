@@ -262,7 +262,7 @@ export default function ConsultationSection() {
                 padding: "5px 13px", borderRadius: T.radiusPill,
                 background: "#e4f9ec", color: "#0a6b2b",
               }}>
-                <Zap size={9} strokeWidth={2.5} /> Best for beginners
+                <Zap size={9} strokeWidth={2.5} /> Express Plan
               </span>
               <span style={{
                 marginLeft: "auto",
