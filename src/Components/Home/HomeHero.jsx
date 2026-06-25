@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import hero from '../../assets/home/pritika-mobile.webp';
-import { Bike, Dumbbell } from 'lucide-react';
+import { Footprints , Dumbbell } from 'lucide-react';
 import appSS from "../../assets/home/appSS.png";
 function ease(t) {
   return t * t * t * (t * (t * 6 - 15) + 10);
@@ -20,7 +20,7 @@ const TOTAL = 2600;
 const MAX_VH = 1200;
 
 const activities = [
-  { type: "bike", name: "Biking", time: "1:32 PM · 19 min · 5 km", cardio: 12 },
+  { type: "bike", name: "Walking", time: "1:32 PM · 19 min · 5 km", cardio: 12 },
   { type: "run", name: "Full Body Reinforcement", time: "10:22 · 22 min", cardio: 7 },
   { type: "run", name: "Post-work outdoor run", time: "5:48 PM · 31 min · 5.2 km", cardio: 14 },
 ];
@@ -82,7 +82,7 @@ function MobileActivityRow({ act, delay }) {
     >
       <div className="flex items-center gap-2.5 min-w-0">
         <div className="w-[38px] h-[38px] rounded-full bg-[#ccf2ec] flex items-center justify-center shrink-0">
-          {act.type === "bike" ? <Bike size={18} color="#0f6e56" /> : <Dumbbell size={18} color="#0f6e56" />}
+          {act.type === "bike" ? <Footprints size={18} color="#0f6e56" /> : <Dumbbell size={18} color="#0f6e56" />}
         </div>
         <div className="min-w-0">
           <p className="m-0 text-[13px] font-semibold text-gray-900 truncate max-w-[170px]">{act.name}</p>
@@ -169,9 +169,10 @@ function MobileSection() {
         />
         <div className="mob-hero-dim" />
         <div className="mob-hero-title">
+            <h2 className="text-white/60 text-xs]">Premium Weightloss / Health Issue Reversal Programs</h2>
           <h1
             className="text-white font-semibold leading-[1.1] m-0"
-            style={{ fontSize: "clamp(28px, 8vw, 48px)", letterSpacing: "-0.03em", textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
+            style={{ fontSize: "clamp(48px, 8vw, 48px)", letterSpacing: "-0.03em", textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
           >
             Exclusive Offer for<br />Dedicated Moms Like You!
           </h1>
@@ -355,6 +356,7 @@ export default function HomeHero() {
               >
                 Turning commitment into transformation
               </h2>
+              <p className="mt-6">Congratulations on being in the top 40% of committed health enthusiasts! You're one step closer to a remarkable health transformation.</p>
             </div>
           </div>
 
@@ -439,12 +441,14 @@ Ready to jump ahead in line and receive personalized guidance with priority supp
               
               {/* Heading overlay */}
               <div
-                className="absolute top-1/2 left-0 2xl:w-1/3 w-1/2 flex items-center justify-center px-6 pointer-events-none will-change-transform 2xl:ml-16 xl:mt-16"
+                className="absolute top-1/2 left-0 2xl:w-1/3 w-1/2 flex flex-col px-6 pointer-events-none will-change-transform 2xl:ml-16 xl:mt-16"
                 style={{
                   transform: `translateY(calc(-50% + ${headingTransY}px))`,
                   opacity: headingOpacity,
                 }}
               >
+                            <h2 className="text-white/60 text-xl ">Premium Weightloss / Health Issue Reversal Programs</h2>
+
                 <h1
                   className="text-white/70 text-left leading-tight m-0"
                   style={{
@@ -514,7 +518,7 @@ Ready to jump ahead in line and receive personalized guidance with priority supp
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div className="w-[38px] h-[38px] rounded-full bg-[#ccf2ec] flex items-center justify-center shrink-0">
-                            {act.type === "bike" ? <Bike /> : <Dumbbell />}
+                            {act.type === "bike" ? <Footprints /> : <Dumbbell />}
                           </div>
                           <div className="min-w-0">
                             <p className="m-0 text-[13px] font-semibold text-gray-900 truncate max-w-[170px]">

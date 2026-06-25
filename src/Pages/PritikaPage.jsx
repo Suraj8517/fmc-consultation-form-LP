@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, Phone, Globe, Gift } from "lucide-react";
 import img1 from "../assets/home/pritika-mobile.png"
-import Sample from "./sample";
 
 
 export default function PritikaConsultation() {

@@ -5,6 +5,7 @@ import reshma from "../../assets/home/reshma.png"
 import sanjusri from "../../assets/home/sanjusri.png"
 import sathya from "../../assets/home/sathya.png"
 import sample from "../../assets/home/sample.jpg"
+import { HashLink } from "react-router-hash-link";
 
 
 const DURATION = 6000;
@@ -53,6 +54,12 @@ const testimonials = [
     author: "Mrs.Kavina Jaspher",
     image:sample
   },
+   {
+  quote:
+    "I joined the 6-month program after gaining weight during pregnancy and successfully lost 10 kg with the help of a personalized meal plan. My dietitian, Sathya, was incredibly supportive and adapted the plan to fit my work schedule. The program taught me how to maintain a balanced diet, and I highly recommend it to new moms looking for a healthy and sustainable weight-loss journey.",
+  author: "Mrs. Shanmitha",
+  image: sample
+}
 ];
 
 export default function TestimonialsSection() {
@@ -86,15 +93,15 @@ export default function TestimonialsSection() {
           <h2 className=" text-3xl md:text-4xl font-medium text-[#2d2d2d] leading-snug mb-4">
             Trusted by moms who chose to reclaim their strength
           </h2>
-          <a
-            href="#"
+          <HashLink
+            to="#cta"
             className="group text-lg text-[#2d2d2d] flex items-center gap-1"
           >
             Start Your Journey
             <span className="text-md transition-transform duration-300 group-hover:translate-x-1">
               ›
             </span>
-          </a>
+          </HashLink>
         </div>
 
         {/* Right — green card */}
@@ -115,6 +122,7 @@ export default function TestimonialsSection() {
                   pointerEvents: i === active ? "auto" : "none",
                 }}
               >
+                
                 <p className="text-[#2d2d2d] text-md 2xl:text-2xl leading-relaxed font-normal mb-6">
                   "{item.quote}"
                 </p>

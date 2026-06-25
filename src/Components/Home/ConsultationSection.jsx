@@ -9,13 +9,12 @@ const CYCLING_WORDS = ["wellness", "fitness", "strength", "vitality"];
 const CYCLE_MS = 2600;
 
 const FEATURES = [
-  { icon: User,         label: "Personalized Consultation" },
-  { icon: Activity,     label: "Health Assessment" },
-  { icon: Salad,        label: "Nutrition Guidance" },
-  { icon: CheckSquare,  label: "Program Recommendation" },
+  { icon: User,        label: "Personalized Consultation" },
+  { icon: Activity,    label: "Health Assessment" },
+  { icon: Salad,       label: "Nutrition Guidance" },
+  { icon: CheckSquare, label: "Program Recommendation" },
 ];
 
-/* ── Shared token values ── */
 const T = {
   radius: 20,
   radiusPill: 999,
@@ -26,9 +25,27 @@ const T = {
 
 function TrustRow({ items }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginTop: 18 }}>
+    <div style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexWrap: "wrap",
+      gap: 8,
+      marginTop: 18,
+    }}>
       {items.map(({ icon: Icon, label, color }) => (
-        <span key={label} style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 10.5, color, fontWeight: 500, letterSpacing: "0.04em" }}>
+        <span
+          key={label}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 5,
+            fontSize: 10.5,
+            color,
+            fontWeight: 500,
+            letterSpacing: "0.04em",
+          }}
+        >
           <Icon size={11} strokeWidth={2} />
           {label}
         </span>
@@ -41,7 +58,10 @@ function FeatureList({ features, iconBg, iconColor, textColor }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: T.gap, marginBottom: 22 }}>
       {features.map(({ icon: Icon, label }) => (
-        <div key={label} style={{ display: "flex", alignItems: "center", gap: 11, fontSize: 12.5, color: textColor }}>
+        <div
+          key={label}
+          style={{ display: "flex", alignItems: "center", gap: 11, fontSize: 12.5, color: textColor }}
+        >
           <div style={{
             width: 30, height: 30, borderRadius: 9,
             background: iconBg,
@@ -59,14 +79,31 @@ function FeatureList({ features, iconBg, iconColor, textColor }) {
 function PriceBlock({ original, current, suffix }) {
   return (
     <div style={{ marginBottom: 18 }}>
-      <p style={{ fontSize: 12, textDecoration: "line-through", color: suffix === "light" ? "#bbb" : "rgba(255,255,255,0.28)", marginBottom: 2 }}>{original}</p>
+      <p style={{
+        fontSize: 12,
+        textDecoration: "line-through",
+        color: suffix === "light" ? "#bbb" : "rgba(255,255,255,0.28)",
+        marginBottom: 2,
+      }}>
+        {original}
+      </p>
       <div style={{ display: "flex", alignItems: "flex-end", gap: 6 }}>
         <span style={{
-          fontSize: 56, fontWeight: 800, lineHeight: 1,
+          fontSize: "clamp(38px, 10vw, 56px)",
+          fontWeight: 800,
+          lineHeight: 1,
           letterSpacing: "-0.045em",
           color: suffix === "light" ? "#111" : "#fff",
-        }}>{current}</span>
-        <span style={{ fontSize: 13, color: suffix === "light" ? "#aaa" : "rgba(255,255,255,0.35)", paddingBottom: 9 }}>only</span>
+        }}>
+          {current}
+        </span>
+        <span style={{
+          fontSize: 13,
+          color: suffix === "light" ? "#aaa" : "rgba(255,255,255,0.35)",
+          paddingBottom: 9,
+        }}>
+          only
+        </span>
       </div>
     </div>
   );
@@ -81,10 +118,92 @@ function AdjustmentNote({ iconColor, bg, border, textColor, strongColor }) {
       padding: "12px 14px", marginBottom: 22, lineHeight: 1.65,
     }}>
       <Heart size={13} color={iconColor} strokeWidth={2} style={{ marginTop: 1, flexShrink: 0 }} />
-      <span>Consultation fee is <strong style={{ color: strongColor }}>adjusted against your program fee</strong> once you join.</span>
+      <span>
+        Consultation fee is{" "}
+        <strong style={{ color: strongColor }}>adjusted against your program fee</strong>{" "}
+        once you join.
+      </span>
     </div>
   );
 }
+
+const styles = `
+  @keyframes aurora {
+    from { transform: translateX(-50%) scale(1);    opacity: 0.6; }
+    to   { transform: translateX(-50%) scale(1.18); opacity: 1;   }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aurora { animation: none !important; }
+  }
+
+  .consult-card {
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s;
+  }
+  .consult-card:hover {
+    transform: translateY(-5px);
+  }
+  .consult-card-light:hover {
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  }
+  .consult-card-dark:hover {
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(60,230,150,0.06);
+  }
+
+  .consult-btn {
+    transition: filter 0.2s, transform 0.2s;
+  }
+  .consult-btn:hover {
+    filter: brightness(1.07);
+    transform: translateY(-2px);
+  }
+
+  /* Cards grid: 2-col on wide, 1-col on mobile */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+  @media (max-width: 600px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Stats row: wrap on very small screens */
+  .stats-row {
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 400px) {
+    .stats-row {
+      flex-wrap: wrap;
+      border-radius: 16px;
+      overflow: visible;
+      border: none;
+      gap: 8px;
+      justify-content: center;
+    }
+    .stat-cell {
+      border-left: none !important;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      min-width: 90px;
+    }
+  }
+
+  /* Badges row: wrap on small screens */
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
+`;
 
 export default function ConsultationSection() {
   const [wordIdx, setWordIdx] = useState(0);
@@ -111,35 +230,36 @@ export default function ConsultationSection() {
         display: "flex",
         alignItems: "center",
         color: "#fff",
-        padding: "100px 24px",
+        padding: "clamp(60px, 10vw, 100px) clamp(16px, 5vw, 24px)",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* ── Ambient aurora — signature element ── */}
-      <div aria-hidden style={{
+      <style>{styles}</style>
+
+      {/* Ambient aurora */}
+      <div aria-hidden className="aurora" style={{
         position: "absolute",
         top: "15%",
         left: "50%",
         transform: "translateX(-50%)",
-        width: 640,
+        width: "min(640px, 100vw)",
         height: 360,
         borderRadius: "50%",
         background: "radial-gradient(ellipse at center, rgba(201,107,255,0.07) 0%, rgba(255,63,160,0.05) 38%, transparent 70%)",
         pointerEvents: "none",
         animation: "aurora 8s ease-in-out infinite alternate",
       }} />
-      <style>{`
-        @keyframes aurora {
-          from { transform: translateX(-50%) scale(1);   opacity: 0.6; }
-          to   { transform: translateX(-50%) scale(1.18); opacity: 1; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .aurora { animation: none !important; }
-        }
-      `}</style>
 
-      <div style={{ maxWidth: 880, margin: "0 auto", width: "100%", display: "flex", flexDirection: "column", gap: 64, position: "relative" }}>
+      <div style={{
+        maxWidth: 880,
+        margin: "0 auto",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        gap: "clamp(40px, 8vw, 64px)",
+        position: "relative",
+      }}>
 
         {/* ── HERO ── */}
         <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -160,7 +280,7 @@ export default function ConsultationSection() {
 
           {/* Headline */}
           <h2 style={{
-            fontSize: "clamp(2.1rem,4vw,3.1rem)",
+            fontSize: "clamp(1.6rem, 5vw, 3.1rem)",
             fontWeight: 800,
             lineHeight: 1.1,
             marginBottom: 0,
@@ -168,10 +288,18 @@ export default function ConsultationSection() {
           }}>
             Your personalized path to
           </h2>
-          {/* Animated word on its own line for breathing room */}
-          <div style={{ height: "clamp(2.8rem,5vw,3.8rem)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", marginBottom: 4 }}>
+
+          {/* Animated word */}
+          <div style={{
+            height: "clamp(2.2rem, 6vw, 3.8rem)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+            marginBottom: 4,
+          }}>
             <span style={{
-              fontSize: "clamp(2.1rem,4vw,3.1rem)",
+              fontSize: "clamp(1.6rem, 5vw, 3.1rem)",
               fontWeight: 800,
               letterSpacing: "-0.02em",
               background: "linear-gradient(100deg,#ff6b3d,#ff3fa0,#c96bff)",
@@ -188,34 +316,50 @@ export default function ConsultationSection() {
           </div>
 
           <p style={{
-            fontSize: 14,
+            fontSize: "clamp(13px, 3.5vw, 14px)",
             color: "rgba(255,255,255,0.48)",
             lineHeight: 1.8,
             marginBottom: 40,
             maxWidth: 520,
             marginTop: 12,
+            padding: "0 8px",
           }}>
             Every woman's journey is different. Our expert-designed programs begin
             with a real consultation — not a quiz — so you get guidance that actually fits your life.
           </p>
 
           {/* Stats */}
-          <div style={{ display: "flex", borderRadius: 16, overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)" }}>
+          <div className="stats-row">
             {[
-              { num: "10K+", label: "Women guided" },
-              { num: "4.9★", label: "Average rating" },
+              { num: "1Lakh+",  label: "Women guided" },
+              { num: "4.9★",  label: "Average rating" },
               { num: "48 hrs", label: "Response time" },
-            ].map((s, i, arr) => (
-              <div key={s.label} style={{
-                padding: "18px 28px",
-                borderLeft: i !== 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
-              }}>
+            ].map((s, i) => (
+              <div
+                key={s.label}
+                className="stat-cell"
+                style={{
+                  padding: "18px clamp(14px, 4vw, 28px)",
+                  borderLeft: i !== 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                }}
+              >
                 <div style={{
-                  fontSize: 22, fontWeight: 800,
+                  fontSize: "clamp(18px, 4vw, 22px)",
+                  fontWeight: 800,
                   background: "linear-gradient(90deg,#ff6b3d,#ff3fa0)",
-                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-                }}>{s.num}</div>
-                <div style={{ fontSize: 10, color: "rgba(255,255,255,0.36)", marginTop: 3, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}>
+                  {s.num}
+                </div>
+                <div style={{
+                  fontSize: 10,
+                  color: "rgba(255,255,255,0.36)",
+                  marginTop: 3,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                }}>
                   {s.label}
                 </div>
               </div>
@@ -224,38 +368,28 @@ export default function ConsultationSection() {
         </div>
 
         {/* ── CARDS ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 22, alignItems: "start" }}>
+        <div className="cards-grid">
 
           {/* ══ CARD 1 — Express / Warm Cream ══ */}
           <div
+            className="consult-card consult-card-light"
             style={{
               borderRadius: T.radius + 8,
-              padding: "28px 28px 24px",
+              padding: "clamp(20px, 5vw, 28px)",
               position: "relative",
               overflow: "hidden",
               background: "#faf8f5",
               color: "#111",
               border: "1px solid rgba(0,0,0,0.06)",
-              transition: "transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.boxShadow = "0 24px 60px rgba(0,0,0,0.35)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "none";
-              e.currentTarget.style.boxShadow = "none";
             }}
           >
-            {/* Subtle corner glow */}
             <div aria-hidden style={{
               position: "absolute", top: -80, right: -80, width: 240, height: 240, borderRadius: "50%",
               background: "radial-gradient(circle,rgba(255,63,160,0.09) 0%,transparent 70%)",
               pointerEvents: "none",
             }} />
 
-            {/* Badges */}
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 22, flexWrap: "wrap" }}>
+            <div className="badge-row">
               <span style={{
                 display: "inline-flex", alignItems: "center", gap: 5,
                 fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase",
@@ -273,10 +407,16 @@ export default function ConsultationSection() {
               </span>
             </div>
 
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#bbb", marginBottom: 3 }}>
+            <p style={{
+              fontSize: 10, fontWeight: 700, letterSpacing: "0.2em",
+              textTransform: "uppercase", color: "#bbb", marginBottom: 3,
+            }}>
               Express Consultation
             </p>
-            <h3 style={{ fontSize: 19, fontWeight: 800, color: "#111", lineHeight: 1.22, marginBottom: 22, letterSpacing: "-0.01em" }}>
+            <h3 style={{
+              fontSize: "clamp(16px, 4vw, 19px)",
+              fontWeight: 800, color: "#111", lineHeight: 1.22, marginBottom: 22, letterSpacing: "-0.01em",
+            }}>
               Quick consult with<br />the FitMom Club Team
             </h3>
 
@@ -301,52 +441,49 @@ export default function ConsultationSection() {
 
             <Link
               to="/express-consultation"
+              className="consult-btn"
               style={{
                 width: "100%", padding: "16px 0", borderRadius: T.radiusPill,
                 fontSize: 14, fontWeight: 700, border: "none", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                 background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
                 color: "#fff", letterSpacing: "0.02em", textDecoration: "none",
-                transition: "filter 0.2s, transform 0.2s",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.07)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; e.currentTarget.style.transform = "none"; }}
             >
               Book My Consultation <ArrowRight size={14} strokeWidth={2.5} />
             </Link>
 
             <TrustRow items={[
-              { icon: Star,  label: "4.9 / 5 Rating",    color: "#bbb" },
-              { icon: Users, label: "10,000+ Women",      color: "#bbb" },
-              { icon: Lock,  label: "Secure Booking",     color: "#bbb" },
+              { icon: Star,  label: "4.9 / 5 Rating", color: "#bbb" },
+              { icon: Users, label: "10,000+ Women",   color: "#bbb" },
+              { icon: Lock,  label: "Secure Booking",  color: "#bbb" },
             ]} />
           </div>
 
           {/* ══ CARD 2 — 1-on-1 / Deep Emerald ══ */}
           <div
+            className="consult-card consult-card-dark"
             style={{
               borderRadius: T.radius + 8,
-              padding: "28px 28px 24px",
+              padding: "clamp(20px, 5vw, 28px)",
               position: "relative",
               overflow: "hidden",
               background: "linear-gradient(150deg,#0c2420 0%,#0f2f2a 55%,#0a1d1a 100%)",
               border: "1px solid rgba(60,230,150,0.1)",
-              transition: "transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.boxShadow = "0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(60,230,150,0.06)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "none";
-              e.currentTarget.style.boxShadow = "none";
             }}
           >
-            <div aria-hidden style={{ position: "absolute", top: -50, right: -50, width: 200, height: 200, borderRadius: "50%", background: "radial-gradient(circle,rgba(60,230,150,0.07) 0%,transparent 70%)", pointerEvents: "none" }} />
-            <div aria-hidden style={{ position: "absolute", bottom: -70, left: -50, width: 220, height: 220, borderRadius: "50%", background: "radial-gradient(circle,rgba(190,90,255,0.05) 0%,transparent 70%)", pointerEvents: "none" }} />
+            <div aria-hidden style={{
+              position: "absolute", top: -50, right: -50, width: 200, height: 200, borderRadius: "50%",
+              background: "radial-gradient(circle,rgba(60,230,150,0.07) 0%,transparent 70%)",
+              pointerEvents: "none",
+            }} />
+            <div aria-hidden style={{
+              position: "absolute", bottom: -70, left: -50, width: 220, height: 220, borderRadius: "50%",
+              background: "radial-gradient(circle,rgba(190,90,255,0.05) 0%,transparent 70%)",
+              pointerEvents: "none",
+            }} />
 
-            {/* Badges */}
-            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 22 }}>
+            <div className="badge-row">
               <span style={{
                 background: "linear-gradient(135deg,#c9a84c,#ffe070)",
                 color: "#3a2500", fontSize: 10, fontWeight: 800,
@@ -362,15 +499,25 @@ export default function ConsultationSection() {
               }}>
                 Limited time offer
               </span>
-              <span style={{ marginLeft: "auto", fontSize: 10, fontWeight: 700, padding: "5px 12px", borderRadius: T.radiusPill, background: "rgba(60,230,150,0.12)", color: "#3ce696" }}>
+              <span style={{
+                marginLeft: "auto",
+                fontSize: 10, fontWeight: 700, padding: "5px 12px", borderRadius: T.radiusPill,
+                background: "rgba(60,230,150,0.12)", color: "#3ce696",
+              }}>
                 Save ₹1,102
               </span>
             </div>
 
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)", marginBottom: 3 }}>
+            <p style={{
+              fontSize: 10, fontWeight: 700, letterSpacing: "0.2em",
+              textTransform: "uppercase", color: "rgba(255,255,255,0.28)", marginBottom: 3,
+            }}>
               1-on-1 Consultation
             </p>
-            <h3 style={{ fontSize: 19, fontWeight: 800, color: "#fff", lineHeight: 1.22, marginBottom: 22, letterSpacing: "-0.01em" }}>
+            <h3 style={{
+              fontSize: "clamp(16px, 4vw, 19px)",
+              fontWeight: 800, color: "#fff", lineHeight: 1.22, marginBottom: 22, letterSpacing: "-0.01em",
+            }}>
               Direct call with<br />Pritika herself
             </h3>
 
@@ -395,24 +542,22 @@ export default function ConsultationSection() {
 
             <Link
               to="/pritika-consultation"
+              className="consult-btn"
               style={{
                 width: "100%", padding: "16px 0", borderRadius: T.radiusPill,
                 fontSize: 14, fontWeight: 700, border: "none", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
                 background: "linear-gradient(90deg,#3ce696,#00d9ff)",
                 color: "#05221a", letterSpacing: "0.02em", textDecoration: "none",
-                transition: "filter 0.2s, transform 0.2s",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.filter = "brightness(1.07)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.filter = "none"; e.currentTarget.style.transform = "none"; }}
             >
               Reserve My Spot <ArrowRight size={14} strokeWidth={2.5} />
             </Link>
 
             <TrustRow items={[
-              { icon: Star,  label: "4.9 / 5 Rating",         color: "rgba(255,255,255,0.28)" },
-              { icon: Users, label: "10,000+ Women",           color: "rgba(255,255,255,0.28)" },
-              { icon: Zap,   label: "Instant Confirmation",    color: "rgba(255,255,255,0.28)" },
+              { icon: Star,  label: "4.9 / 5 Rating",      color: "rgba(255,255,255,0.28)" },
+              { icon: Users, label: "10,0000+ Women",        color: "rgba(255,255,255,0.28)" },
+              { icon: Zap,   label: "Instant Confirmation", color: "rgba(255,255,255,0.28)" },
             ]} />
           </div>
 

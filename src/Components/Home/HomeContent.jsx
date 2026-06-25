@@ -3,7 +3,7 @@ import diet from "../../assets/home/secondSection/nutrition.jpg"
 import expert from "../../assets/home/secondSection/expert.jpg"
 import session from "../../assets/home/secondSection/session.jpg"
 import support from "../../assets/home/secondSection/support.jpg"
-
+import { HashLink } from "react-router-hash-link";
 const DURATION = 6000;
 const TICK_MS = 50;
 
@@ -87,10 +87,24 @@ export default function FeatureShowcase() {
         <p className="text-xs sm:text-sm 2xl:text-lg text-[#5a5855] mb-3">
           Let's delve into what makes our transformation program uniquely empowering:
         </p>
-        <h1 className="text-xl sm:text-2xl md:text-4xl font-medium leading-snug">
+        <h1 className="text-xl sm:text-2xl md:text-4xl font-medium leading-snug ">
           Unlock Exclusive Support, Expert Guidance, and Personalized Strategies
           to Achieve Your Health &amp; Fitness Goals
         </h1>
+        <p className="text-black/60  sm:text-xs 2xl:text-md ">Experience Our Premium Transformation Program: Fully Supported, Totally Personalized</p>
+      
+      <HashLink
+        to="/#cta"
+        className="flex lg:w-[20%] w-[30%] mt-6 mx-auto items-center justify-center gap-2 rounded-full px-4 py-[15px] text-sm font-bold transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_15px_40px_rgba(0,212,255,0.35)] active:scale-[0.98]"
+        style={{
+          background: "linear-gradient(90deg,#50ffaa,#00d4ff)",
+          color: "#062019",
+          letterSpacing: "0.02em",
+          textDecoration: "none",
+        }}
+      >
+        Join Now
+      </HashLink>
       </div>
 
       {/* Card */}
