@@ -162,7 +162,7 @@ export default function FitMomConsultation({ info }) {
             {/* Buttons — each with its own payment-method caption */}
             <div className="mt-7 flex flex-col sm:flex-row gap-5 w-full">
               <div className="flex-1 flex flex-col items-center gap-2">
-                <button
+                <button id="payments"
                   onClick={() => handlePayClick("planB")}
                   className="w-full flex items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:opacity-90"
                   style={{

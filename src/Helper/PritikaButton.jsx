@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { ArrowRight } from "lucide-react";
 
 const PritikaConsultationButton = ({
-  to = "/pritika-consultation",
+  to = "/pritika-consultation#payments",
   text = "Book Consultation with Pritika",
   className = "",
   style = {},
   icon = true,
 }) => {
   return (
-    <Link
+    <HashLink
       to={to}
       className={`consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap ${className}`}
       style={{
@@ -29,7 +30,7 @@ const PritikaConsultationButton = ({
     >
       {text}
       {icon && <ArrowRight size={14} strokeWidth={2.5} />}
-    </Link>
+    </HashLink>
   );
 };
 

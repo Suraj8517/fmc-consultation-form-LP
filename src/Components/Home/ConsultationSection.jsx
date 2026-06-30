@@ -147,7 +147,7 @@ export default function ConsultationSection() {
 
   return (
     <section
-      id="cta"
+     
       style={{
         fontFamily: "'Poppins', sans-serif",
         background: "#0a0a0c",
@@ -338,7 +338,7 @@ export default function ConsultationSection() {
             }}>
               Express Consultation
             </p>
-            <h3 style={{
+            <h3  id="cta" style={{
               fontSize: "clamp(16px, 4vw, 19px)",
               fontWeight: 800, color: "#111", lineHeight: 1.22, marginBottom: 22, letterSpacing: "-0.01em",
             }}>
