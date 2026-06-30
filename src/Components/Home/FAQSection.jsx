@@ -162,7 +162,7 @@ export default function FAQSection() {
 
   return (
     <section
-      className="relative min-h-[70svh] flex items-center px-5 pb-20 sm:px-10 md:px-16 lg:px-24 xl:px-32 overflow-hidden bg-[#0D0D0D]"
+      className="relative min-h-[70svh] flex items-center px-5 pb-20 sm:px-10 md:px-16 lg:px-24 xl:px-32 overflow-hidden bg-[#0A0A0C]"
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
       

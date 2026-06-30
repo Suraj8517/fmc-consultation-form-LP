@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
 import logo from "../../assets/home/logo.png";
+import ConsultationButton from "../../Helper/ExpressButton";
+import PritikaConsultationButton from "../../Helper/PritikaButton";
 
 const T = {
   radiusPill: 999,
@@ -69,48 +71,11 @@ export default function Navbar() {
         </a>
 
         {/* Right controls — desktop */}
-        <div className="hidden md:flex items-center gap-3 flex-wrap justify-end">
-          <Link
-            to="/pritika-consultation"
-            className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
-            style={{
-              padding: "16px 16px",
-              borderRadius: T.radiusPill,
-              fontSize: 13,
-              fontWeight: 700,
-              border: "none",
-              cursor: "pointer",
-              background: "linear-gradient(90deg,#3ce696,#00d9ff)",
-              color: "#05221a",
-              letterSpacing: "0.02em",
-              textDecoration: "none",
-              boxShadow: "0 4px 14px rgba(0, 217, 255, 0.25)",
-            }}
-          >
-            Book Consultation with Pritika
-            <ArrowRight size={14} strokeWidth={2.5} />
-          </Link>
+        <div className="hidden md:flex items-center gap-3 justify-end ">
+          <PritikaConsultationButton/>
 
-          <Link
-            to="/express-consultation"
-            className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
-            style={{
-              padding: "16px 16px",
-              borderRadius: T.radiusPill,
-              fontSize: 13,
-              fontWeight: 700,
-              border: "none",
-              cursor: "pointer",
-              background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
-              color: "#fff",
-              letterSpacing: "0.02em",
-              textDecoration: "none",
-              boxShadow: "0 4px 14px rgba(255, 63, 160, 0.25)",
-            }}
-          >
-            Book Consultation
-            <ArrowRight size={14} strokeWidth={2.5} />
-          </Link>
+          <ConsultationButton/>
+           
         </div>
 
         {/* Hamburger trigger — mobile */}
@@ -146,49 +111,9 @@ export default function Navbar() {
         }}
       >
         <div className="flex flex-col gap-3 px-5 py-4">
-          <Link
-            to="/pritika-consultation"
-            onClick={() => setMenuOpen(false)}
-            className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
-            style={{
-              padding: "12px 16px",
-              borderRadius: T.radiusPill,
-              fontSize: 14,
-              fontWeight: 700,
-              border: "none",
-              cursor: "pointer",
-              background: "linear-gradient(90deg,#3ce696,#00d9ff)",
-              color: "#05221a",
-              letterSpacing: "0.02em",
-              textDecoration: "none",
-              boxShadow: "0 4px 14px rgba(0, 217, 255, 0.25)",
-            }}
-          >
-            Book Consultation with Pritika
-            <ArrowRight size={14} strokeWidth={2.5} />
-          </Link>
+           <PritikaConsultationButton/>
 
-          <Link
-            to="/express-consultation"
-            onClick={() => setMenuOpen(false)}
-            className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
-            style={{
-              padding: "12px 16px",
-              borderRadius: T.radiusPill,
-              fontSize: 14,
-              fontWeight: 700,
-              border: "none",
-              cursor: "pointer",
-              background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
-              color: "#fff",
-              letterSpacing: "0.02em",
-              textDecoration: "none",
-              boxShadow: "0 4px 14px rgba(255, 63, 160, 0.25)",
-            }}
-          >
-            Book Consultation
-            <ArrowRight size={14} strokeWidth={2.5} />
-          </Link>
+          <ConsultationButton/>
         </div>
       </div>
     </header>

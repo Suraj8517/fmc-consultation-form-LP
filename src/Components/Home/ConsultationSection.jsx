@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../../app.css"
 import {
   User, Activity, Salad, CheckSquare,
   Star, Users, Lock, Zap, Heart, ArrowRight, Sparkles,
 } from "lucide-react";
-
+import PritikaConsultationButton from "../../Helper/PritikaButton"
+import ConsultationButton from "../../Helper/ExpressButton";
 const CYCLING_WORDS = ["wellness", "fitness", "strength", "vitality"];
 const CYCLE_MS = 2600;
 
@@ -127,83 +129,7 @@ function AdjustmentNote({ iconColor, bg, border, textColor, strongColor }) {
   );
 }
 
-const styles = `
-  @keyframes aurora {
-    from { transform: translateX(-50%) scale(1);    opacity: 0.6; }
-    to   { transform: translateX(-50%) scale(1.18); opacity: 1;   }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .aurora { animation: none !important; }
-  }
 
-  .consult-card {
-    transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s;
-  }
-  .consult-card:hover {
-    transform: translateY(-5px);
-  }
-  .consult-card-light:hover {
-    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-  }
-  .consult-card-dark:hover {
-    box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(60,230,150,0.06);
-  }
-
-  .consult-btn {
-    transition: filter 0.2s, transform 0.2s;
-  }
-  .consult-btn:hover {
-    filter: brightness(1.07);
-    transform: translateY(-2px);
-  }
-
-  /* Cards grid: 2-col on wide, 1-col on mobile */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-    align-items: start;
-  }
-  @media (max-width: 600px) {
-    .cards-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Stats row: wrap on very small screens */
-  .stats-row {
-    display: flex;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.07);
-    flex-wrap: nowrap;
-  }
-  @media (max-width: 400px) {
-    .stats-row {
-      flex-wrap: wrap;
-      border-radius: 16px;
-      overflow: visible;
-      border: none;
-      gap: 8px;
-      justify-content: center;
-    }
-    .stat-cell {
-      border-left: none !important;
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px;
-      min-width: 90px;
-    }
-  }
-
-  /* Badges row: wrap on small screens */
-  .badge-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 22px;
-    flex-wrap: wrap;
-  }
-`;
 
 export default function ConsultationSection() {
   const [wordIdx, setWordIdx] = useState(0);
@@ -235,7 +161,7 @@ export default function ConsultationSection() {
         overflow: "hidden",
       }}
     >
-      <style>{styles}</style>
+    
 
       {/* Ambient aurora */}
       <div aria-hidden className="aurora" style={{
@@ -439,19 +365,7 @@ export default function ConsultationSection() {
               strongColor="#111"
             />
 
-            <Link
-              to="/express-consultation"
-              className="consult-btn"
-              style={{
-                width: "100%", padding: "16px 0", borderRadius: T.radiusPill,
-                fontSize: 14, fontWeight: 700, border: "none", cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
-                color: "#fff", letterSpacing: "0.02em", textDecoration: "none",
-              }}
-            >
-              Book My Consultation <ArrowRight size={14} strokeWidth={2.5} />
-            </Link>
+           <ConsultationButton/>
 
             <TrustRow items={[
               { icon: Star,  label: "4.9 / 5 Rating", color: "#bbb" },
@@ -540,19 +454,7 @@ export default function ConsultationSection() {
               strongColor="rgba(255,255,255,0.9)"
             />
 
-            <Link
-              to="/pritika-consultation"
-              className="consult-btn"
-              style={{
-                width: "100%", padding: "16px 0", borderRadius: T.radiusPill,
-                fontSize: 14, fontWeight: 700, border: "none", cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                background: "linear-gradient(90deg,#3ce696,#00d9ff)",
-                color: "#05221a", letterSpacing: "0.02em", textDecoration: "none",
-              }}
-            >
-              Reserve My Spot <ArrowRight size={14} strokeWidth={2.5} />
-            </Link>
+           <PritikaConsultationButton/>
 
             <TrustRow items={[
               { icon: Star,  label: "4.9 / 5 Rating",      color: "rgba(255,255,255,0.28)" },

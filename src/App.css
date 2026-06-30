@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+  @keyframes aurora {
+    from { transform: translateX(-50%) scale(1);    opacity: 0.6; }
+    to   { transform: translateX(-50%) scale(1.18); opacity: 1;   }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aurora { animation: none !important; }
+  }
+
+  .consult-card {
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s;
+  }
+  .consult-card:hover {
+    transform: translateY(-5px);
+  }
+  .consult-card-light:hover {
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  }
+  .consult-card-dark:hover {
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(60,230,150,0.06);
+  }
+
+  .consult-btn {
+    transition: filter 0.2s, transform 0.2s;
+  }
+  .consult-btn:hover {
+    filter: brightness(1.07);
+    transform: translateY(-2px);
+  }
+
+  /* Cards grid: 2-col on wide, 1-col on mobile */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+  @media (max-width: 600px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Stats row: wrap on very small screens */
+  .stats-row {
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 400px) {
+    .stats-row {
+      flex-wrap: wrap;
+      border-radius: 16px;
+      overflow: visible;
+      border: none;
+      gap: 8px;
+      justify-content: center;
+    }
+    .stat-cell {
+      border-left: none !important;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      min-width: 90px;
+    }
+  }
+
+  /* Badges row: wrap on small screens */
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
