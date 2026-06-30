@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { HashLink } from "react-router-hash-link";
-import logo from "../../assets/home/logo.png"; 
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import logo from "../../assets/home/logo.png";
+
+const T = {
+  radiusPill: 999,
+};
+
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
@@ -11,10 +17,7 @@ export default function Navbar() {
       const currentY = window.scrollY;
       const goingUp = currentY < lastY.current;
 
-      // Show with white bg when scrolling up (and not at very top)
-      // Hide when scrolling down
       if (currentY <= 10) {
-        // At top — show, transparent
         setVisible(true);
         setScrolled(false);
       } else if (goingUp) {
@@ -41,32 +44,73 @@ export default function Navbar() {
         transform: visible ? "translateY(0)" : "translateY(-100%)",
       }}
     >
+      <style>{`
+        .consult-btn {
+          transition: filter 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .consult-btn:hover {
+          filter: brightness(1.07);
+          transform: translateY(-2px);
+        }
+        .consult-btn:active {
+          transform: translateY(0);
+        }
+      `}</style>
+
       <nav
-        className="flex items-center justify-between px-5 sm:px-8 md:px-12"
-        style={{ height: "86px", fontFamily: "Poppins, sans-serif" }}
+        className="flex items-center justify-between gap-3 px-5 sm:px-8 md:px-12 py-3 md:py-0"
+        style={{ minHeight: "86px", fontFamily: "Poppins, sans-serif" }}
       >
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 flex-shrink-0">
-          <img src={logo} alt="FitMom Club" className="h-14 w-auto" />
+          <img src={logo} alt="FitMom Club" className="h-10 md:h-14 w-auto" />
         </a>
 
         {/* Right controls */}
-        <div className="flex items-center gap-2">
-          
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
+          <Link
+            to="/pritika-consultation"
+            className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
+            style={{
+              padding: "10px 16px",
+              borderRadius: T.radiusPill,
+              fontSize: 13,
+              fontWeight: 700,
+              border: "none",
+              cursor: "pointer",
+              background: "linear-gradient(90deg,#3ce696,#00d9ff)",
+              color: "#05221a",
+              letterSpacing: "0.02em",
+              textDecoration: "none",
+              boxShadow: "0 4px 14px rgba(0, 217, 255, 0.25)",
+            }}
+          >
+            <span className="hidden sm:inline">Book Consultation with Pritika</span>
+            <span className="sm:hidden">Book with Pritika</span>
+            <ArrowRight size={14} strokeWidth={2.5} />
+          </Link>
 
-          {/* CTA */}
-          <HashLink
-  to="/#cta"
-  className="w-full flex items-center justify-center gap-2 rounded-full px-4 py-[15px] text-sm font-bold transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_15px_40px_rgba(0,212,255,0.35)] active:scale-[0.98]"
-  style={{
-    background: "linear-gradient(90deg,#50ffaa,#00d4ff)",
-    color: "#062019",
-    letterSpacing: "0.02em",
-    textDecoration: "none",
-  }}
->
-  Join Now
-</HashLink>
+          <Link
+            to="/express-consultation"
+            className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
+            style={{
+              padding: "10px 16px",
+              borderRadius: T.radiusPill,
+              fontSize: 13,
+              fontWeight: 700,
+              border: "none",
+              cursor: "pointer",
+              background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
+              color: "#fff",
+              letterSpacing: "0.02em",
+              textDecoration: "none",
+              boxShadow: "0 4px 14px rgba(255, 63, 160, 0.25)",
+            }}
+          >
+            <span className="hidden sm:inline">Book Consultation</span>
+            <span className="sm:hidden">Book Now</span>
+            <ArrowRight size={14} strokeWidth={2.5} />
+          </Link>
         </div>
       </nav>
     </header>
