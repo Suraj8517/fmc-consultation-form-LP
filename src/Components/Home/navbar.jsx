@@ -74,7 +74,7 @@ export default function Navbar() {
             to="/pritika-consultation"
             className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
             style={{
-              padding: "10px 16px",
+              padding: "16px 16px",
               borderRadius: T.radiusPill,
               fontSize: 13,
               fontWeight: 700,
@@ -95,7 +95,7 @@ export default function Navbar() {
             to="/express-consultation"
             className="consult-btn flex items-center justify-center gap-1.5 whitespace-nowrap"
             style={{
-              padding: "10px 16px",
+              padding: "16px 16px",
               borderRadius: T.radiusPill,
               fontSize: 13,
               fontWeight: 700,
