@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../app.css"
 import {
   User, Activity, Salad, CheckSquare,
   Star, Users, Lock, Zap, Heart, ArrowRight, Sparkles,
