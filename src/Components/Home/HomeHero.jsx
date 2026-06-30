@@ -172,7 +172,7 @@ function MobileSection() {
             <h2 className="text-white/60 text-xs]">Premium Weightloss / Health Issue Reversal Programs</h2>
           <h1
             className="text-white font-semibold leading-[1.1] m-0"
-            style={{ fontSize: "clamp(48px, 8vw, 48px)", letterSpacing: "-0.03em", textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
+            style={{ fontSize: "clamp(38px, 8vw, 48px)", letterSpacing: "-0.03em", textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}
           >
             Exclusive Offer for<br />Dedicated Moms Like You!
           </h1>
