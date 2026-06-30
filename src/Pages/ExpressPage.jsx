@@ -1,29 +1,23 @@
 ﻿import { useState, useEffect } from "react";
 import { ArrowRight, Phone, Globe, Gift } from "lucide-react";
 import img1 from "../assets/express/img1.jpg";
-import hima from "../assets/express/hima.webp"
-import rohini from "../assets/express/rohini.webp"
-import jyoti from "../assets/express/jyoti.webp"
 
-const CONSULTANTS = [
-  {
-    name: "Ms Hima Bindu",
-    role: "Senior Health Consultant",
-    image: hima,
-  },
-  {
-    name: "Ms Rohini",
-    role: "Senior Health Consultant",
-    image: rohini,
-  },
-  {
-    name: "Ms Jyoti",
-    role: "",
-    image: jyoti,
-  },
-];
+import { buildRazorpayUrl } from '../Helper/buildRazorpayurls'
+import { RAZORPAY_PAYMENT_PAGES } from '../constants/constants'
 
-export default function FitMomConsultation() {
+
+export default function FitMomConsultation({ info }) {
+  const handlePayClick = (planKey) => {
+    const razorpayUrl = buildRazorpayUrl(RAZORPAY_PAYMENT_PAGES[planKey], info);
+    window.location.href = razorpayUrl;
+  };
+
+  const handleStripeClick = () => {
+    // Stripe link doesn't support the same prefill params as Razorpay,
+    // so this just navigates directly. Update if you add prefill logic later.
+    window.location.href = "https://buy.stripe.com/7sY8wRdxkdBh2hYagF6EU2O";
+  };
+
   const [pulse, setPulse] = useState(true);
   useEffect(() => {
     const id = setInterval(() => setPulse((p) => !p), 1600);
@@ -111,44 +105,45 @@ export default function FitMomConsultation() {
               </span>
             </div>
 
-              <div className="relative z-10 mt-8">
-        <h1 className="text-3xl lg:text-5xl font-semibold leading-none text-[#1A2E2B]">
-          GET YOUR
-        </h1>
-        <h2 className="mt-2 text-3xl lg:text-5xl font-bold leading-none bg-gradient-to-r from-[#1A2E2B] via-emerald-600 to-[#32b37b] bg-clip-text text-transparent">
-          EXPRESS
-        </h2>
-        <h2 className="text-3xl lg:text-5xl font-bold leading-none bg-gradient-to-r from-[#1A2E2B] via-emerald-600 to-[#32b37b] bg-clip-text text-transparent">
-          CONSULTATION
-        </h2>
+            <div className="relative z-10 mt-8">
+              <h1 className="text-3xl lg:text-5xl font-semibold leading-none text-[#1A2E2B]">
+                GET YOUR
+              </h1>
+              <h2 className="mt-2 text-3xl lg:text-5xl font-bold leading-none bg-gradient-to-r from-[#1A2E2B] via-emerald-600 to-[#32b37b] bg-clip-text text-transparent">
+                EXPRESS
+              </h2>
+              <h2 className="text-3xl lg:text-5xl font-bold leading-none bg-gradient-to-r from-[#1A2E2B] via-emerald-600 to-[#32b37b] bg-clip-text text-transparent">
+                CONSULTATION
+              </h2>
 
-        <p className="mt-3 text-xl text-neutral-600">
-          with <span className="font-semibold text-[#1A2E2B]">FitMom Club Team</span>
-        </p>
-      </div>
-<div className="relative z-10 mt-8 rounded-3xl bg-white p-6 shadow-lg border border-neutral-100">
-        <div className="flex justify-between items-start">
-          <div>
-            <p className="text-xs uppercase tracking-wider text-neutral-400">
-              Special Price
-            </p>
-            <p className="line-through text-neutral-400 mt-2">₹1,099</p>
-            <div className="flex items-end gap-2 mt-1">
-              <span className="text-6xl font-bold text-[#1A2E2B]">₹297</span>
-              <span className="text-neutral-500 mb-2">only</span>
+              <p className="mt-3 text-xl text-neutral-600">
+                with <span className="font-semibold text-[#1A2E2B]">FitMom Club Team</span>
+              </p>
             </div>
-          </div>
 
-          <div className="flex flex-col gap-2">
-            <span className="mx-auto rounded-full bg-red-500 text-white px-4 py-1 text-xs font-bold">
-              73% OFF
-            </span>
-            <span className="rounded-full bg-green-100 text-green-700 px-4 py-1 text-xs font-bold">
-              Save ₹802
-            </span>
-          </div>
-        </div>
-      </div>
+            <div className="relative z-10 mt-8 rounded-3xl bg-white p-6 shadow-lg border border-neutral-100">
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-neutral-400">
+                    Special Price
+                  </p>
+                  <p className="line-through text-neutral-400 mt-2">₹1,099</p>
+                  <div className="flex items-end gap-2 mt-1">
+                    <span className="text-6xl font-bold text-[#1A2E2B]">₹297</span>
+                    <span className="text-neutral-500 mb-2">only</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <span className="mx-auto rounded-full bg-red-500 text-white px-4 py-1 text-xs font-bold">
+                    73% OFF
+                  </span>
+                  <span className="rounded-full bg-green-100 text-green-700 px-4 py-1 text-xs font-bold">
+                    Save ₹802
+                  </span>
+                </div>
+              </div>
+            </div>
 
             {/* Bonus chip */}
             <div
@@ -167,66 +162,62 @@ export default function FitMomConsultation() {
             {/* Buttons — each with its own payment-method caption */}
             <div className="mt-7 flex flex-col sm:flex-row gap-5 w-full">
               <div className="flex-1 flex flex-col items-center gap-2">
-                <a
-                  href="https://rzp.io/rzp/109EVkmm"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handlePayClick("planB")}
                   className="w-full flex items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:opacity-90"
-                   style={{
-                width: "100%",
-                padding: "17px 0",
-                borderRadius: 999,
-                fontSize: 14,
-                fontWeight: 700,
-                border: "none",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 8,
-                background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
-                color: "#fff",
-                letterSpacing: "0.02em",
-                textDecoration: "none",
-                transition: "filter 0.2s, transform 0.2s",
-              }}
+                  style={{
+                    width: "100%",
+                    padding: "17px 0",
+                    borderRadius: 999,
+                    fontSize: 14,
+                    fontWeight: 700,
+                    border: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                    background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
+                    color: "#fff",
+                    letterSpacing: "0.02em",
+                    textDecoration: "none",
+                    transition: "filter 0.2s, transform 0.2s",
+                  }}
                 >
                   <Phone size={16} />
                   <span>WITHIN INDIA</span>
                   <ArrowRight size={14} />
-                </a>
+                </button>
                 <span className="text-[11px] text-neutral-400 text-center">via RazorPay · GPay · UPI · Cards</span>
               </div>
 
               <div className="flex-1 flex flex-col items-center gap-2">
-                <a
-                  href="https://buy.stripe.com/7sY8wRdxkdBh2hYagF6EU2O"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={handleStripeClick}
                   className="w-full flex items-center justify-center gap-2 font-semibold px-5 py-3.5 rounded-full border transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:bg-white"
                   style={{
-                width: "100%",
-                padding: "17px 0",
-                borderRadius: 999,
-                fontSize: 14,
-                fontWeight: 700,
-                border: "none",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 8,
-                background: "linear-gradient(90deg,#50ffaa,#00d4ff)",
-                color: "#062019",
-                letterSpacing: "0.02em",
-                textDecoration: "none",
-                transition: "filter 0.2s, transform 0.2s",
-              }}
+                    width: "100%",
+                    padding: "17px 0",
+                    borderRadius: 999,
+                    fontSize: 14,
+                    fontWeight: 700,
+                    border: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                    background: "linear-gradient(90deg,#50ffaa,#00d4ff)",
+                    color: "#062019",
+                    letterSpacing: "0.02em",
+                    textDecoration: "none",
+                    transition: "filter 0.2s, transform 0.2s",
+                  }}
                 >
                   <Globe size={16} />
                   <span>OUTSIDE INDIA</span>
                   <ArrowRight size={14} />
-                </a>
+                </button>
                 <span className="text-[11px] text-neutral-400 text-center">via Stripe</span>
               </div>
             </div>
@@ -242,26 +233,7 @@ export default function FitMomConsultation() {
           </div>
         </div>
 
-        {/* ── Consultation Team — 
-        <div className=" py-20">
-          <h2 className="text-2xl font-light text-neutral-900 mb-8">Our Consultation Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {CONSULTANTS.map((c) => (
-              <div key={c.name} className="flex flex-col">
-                <div className="rounded-2xl overflow-hidden mb-4" style={{ aspectRatio: "3/4" }}>
-                  <img
-                    src={c.image}
-                    alt={c.name}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-                <p className="text-base font-medium text-neutral-900">{c.name}</p>
-                {c.role && <p className="text-sm text-neutral-500 mt-1 leading-relaxed">{c.role}</p>}
-              </div>
-            ))}
-          </div>
-        </div>
-        */}
+       
       </div>
     </div>
   );

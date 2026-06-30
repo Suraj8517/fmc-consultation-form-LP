@@ -10,6 +10,7 @@ import ConsultationSection from '../Components/Home/ConsultationSection'
 import FAQSection from '../Components/Home/FAQSection'
 import Navbar from '../Components/Home/navbar'
 import FloatingConsultationButtons from '../Helper/FloatingButtonMob'
+
 export default function Home() {
   return (
     <>

@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, Phone, Globe, Gift } from "lucide-react";
 import img1 from "../assets/home/pritika-mobile.png"
+import { buildRazorpayUrl } from '../Helper/buildRazorpayurls'
+import { RAZORPAY_PAYMENT_PAGES } from '../constants/constants'
 
-
-export default function PritikaConsultation() {
+export default function PritikaConsultation({info}) {
+     const handlePayClick = (planKey) => {
+        const razorpayUrl = buildRazorpayUrl(RAZORPAY_PAYMENT_PAGES[planKey], info);
+        window.location.href = razorpayUrl;
+      };
   const [pulse, setPulse] = useState(true);
   useEffect(() => {
     const id = setInterval(() => setPulse((p) => !p), 1600);
@@ -76,7 +81,7 @@ Book your paid consultation call with Ms. Pritika and receive personalized guida
 
           {/* Left: content panel — cream + dark green theme */}
           <div
-            className="p-6 sm:p-9 lg:p-14 flex flex-col order-2 sm:order-1 rounded-3xl h-auto sm:h-[90vh]"
+            className="p-6 sm:p-9 lg:p-14 flex flex-col order-2 sm:order-1 rounded-3xl h-auto"
             style={{ backgroundColor: "#F6F4F0" }}
           >
             {/* Eyebrow */}
@@ -147,34 +152,32 @@ Book your paid consultation call with Ms. Pritika and receive personalized guida
             {/* Buttons — each with its own payment-method caption */}
             <div className="mt-7 flex flex-col sm:flex-row gap-5 w-full">
               <div className="flex-1 flex flex-col items-center gap-2">
-                <a
-                  href="https://rzp.io/rzp/TxoOY2k"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handlePayClick("planA")}
                   className="w-full flex items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:opacity-90"
                   style={{
-                width: "100%",
-                padding: "17px 0",
-                borderRadius: 999,
-                fontSize: 14,
-                fontWeight: 700,
-                border: "none",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 8,
-                background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
-                color: "#fff",
-                letterSpacing: "0.02em",
-                textDecoration: "none",
-                transition: "filter 0.2s, transform 0.2s",
-              }}
+                    width: "100%",
+                    padding: "17px 0",
+                    borderRadius: 999,
+                    fontSize: 14,
+                    fontWeight: 700,
+                    border: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                    background: "linear-gradient(90deg,#ff3fa0,#ff6b3d)",
+                    color: "#fff",
+                    letterSpacing: "0.02em",
+                    textDecoration: "none",
+                    transition: "filter 0.2s, transform 0.2s",
+                  }}
                 >
                   <Phone size={16} />
                   <span>WITHIN INDIA</span>
                   <ArrowRight size={14} />
-                </a>
+                </button>
                 <span className="text-[11px] text-neutral-400 text-center">via RazorPay · GPay · UPI · Cards</span>
               </div>
 
